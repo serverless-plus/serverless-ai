@@ -1,7 +1,7 @@
 {
-  "name": "serverless-ocr",
+  "name": "serverless-ai",
   "version": "0.1.0",
-  "description": "Serverless OCR",
+  "description": "Serverless AI",
   "main": "index.js",
   "scripts": {
     "bootstrap": "node scripts/bootstrap.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yugasun/serverless-ocr.git"
+    "url": "git+https://github.com/yugasun/serverless-ai.git"
   },
   "keywords": [
     "serverless",
@@ -26,7 +26,7 @@
   "author": "yugasun",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yugasun/serverless-ocr/issues"
+    "url": "https://github.com/yugasun/serverless-ai/issues"
   },
-  "homepage": "https://github.com/yugasun/serverless-ocr#readme"
+  "homepage": "https://github.com/yugasun/serverless-ai#readme"
 }

@@ -1,6 +1,8 @@
 # Serverless OCR
 
-Serverless OCR Application developed by Serverless Framework.
+[Demo](https://ai.sls.plus)
+
+Serverless AI Application developed by Serverless Framework.
 
 ### Prepare
 

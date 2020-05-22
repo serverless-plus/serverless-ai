@@ -1,34 +1,6 @@
-# fullstack-serverless-db
+# Serverless OCR
 
-This is a template of serverless fullstack application. It aims to be the
-simplest possible way to build a serverless fullstack application, including a
-Vue.js application on the front-end bundled with Parcel and back-end API using
-postgresql.
-
-This template includes:
-
-- **Serverless RESTful API**: Using
-  [@serverless/tencent-express](https://github.com/serverless-components/tencent-express/tree/v2)
-  component, it contains a Servelress Cloud Function and a single API Gateway
-  endpoint.
-
-- **Serverless website using Vue.js**:
-  [@serverless/tencent-website](https://github.com/serverless-components/tencent-website/tree/v2),
-  it deploys all static files to Cloud Object Storage.
-
-- **Serverless Postgresql**:
-  [@serverless/tencent-postgresql](https://github.com/serverless-components/tencent-postgresql/tree/v2),
-  it auto create a postgresql database for backend using.
-
-&nbsp;
-
-1. [Prepare](#Prepare)
-2. [Download](#Download)
-3. [Bootstrap](#Bootstrap)
-4. [Deploy](#Deploy)
-5. [Development](#Development)
-
-&nbsp;
+Serverless OCR Application developed by Serverless Framework.
 
 ### Prepare
 
@@ -111,10 +83,6 @@ Remove:
 $ npm run remove
 ```
 
-### License
+## License
 
 MIT
-
-```
-
-```

@@ -1,0 +1,20 @@
+org: serverless
+app: serverless-ocr
+stage: dev
+component: website
+name: frontend
+
+inputs:
+  region: ${env:REGION}
+  bucketName: serverless-ocr
+  protocol: https
+  src:
+    src: ./
+    hook: npm run build
+    dist: ./build
+    envPath: ./
+    index: index.html
+    error: index.html
+  env:
+    # get api url after below api service deployed.
+    apiUrl: ${output:${stage}:${app}:backend.apigw.url}

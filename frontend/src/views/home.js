@@ -9,21 +9,23 @@ import {
   Input,
   message,
 } from 'antd';
-import { useLocalStorage } from 'react-use';
+import { useLocalStorage, useDebounce } from 'react-use';
 import { uploadToCos, getOcrResult } from '../apis';
 
 const { Header, Footer, Content } = Layout;
 const { Panel } = Collapse;
 
-function OcrResult({ data }) {
+function OcrResult({ loading, data }) {
   return (
     <Collapse defaultActiveKey={[0]}>
       <Panel header='Recognize Result' key={0}>
-        <ul>
-          {data.map((item, index) => (
-            <li key={index}>{`${index + 1}. ${item.DetectedText}`}</li>
-          ))}
-        </ul>
+        {loading ? null : (
+          <ul>
+            {data.map((item, index) => (
+              <li key={index}>{`${index + 1}. ${item.DetectedText}`}</li>
+            ))}
+          </ul>
+        )}
       </Panel>
       <Panel header='All Result' key={1}>
         {JSON.stringify(data)}
@@ -34,8 +36,10 @@ function OcrResult({ data }) {
 
 function OrcImage({ setTextList }) {
   const [loading, setLoading] = useState(false);
+  const [ocrSuccess, setOcrSuccess] = useState(false);
   const [uuid] = useLocalStorage('uuid');
   const [imageUrl, setImageUrl] = useState('');
+  const [debounceImageUrl, setDebouncedImageUrl] = useState('');
 
   function beforeUpload(file) {
     const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
@@ -71,19 +75,29 @@ function OrcImage({ setTextList }) {
       try {
         const { data } = await getOcrResult(url);
         setTextList(data);
+        setOcrSuccess(true);
       } catch (e) {
         message.error(e.Message);
       }
     }
-    recognizeImage(imageUrl);
-  }, [imageUrl, setTextList]);
+    recognizeImage(debounceImageUrl);
+  }, [debounceImageUrl, setTextList]);
+
+  useDebounce(
+    () => {
+      setOcrSuccess(false);
+      setDebouncedImageUrl(imageUrl);
+    },
+    300,
+    [imageUrl],
+  );
 
   return (
     <Row>
       <Row className='image-box'>
         <Col span={24} className='image-wrapper'>
-          {imageUrl ? (
-            <img alt='OCR Images' src={imageUrl} width='100%' height='auto' />
+          {ocrSuccess ? (
+            <img alt='OCR Images' src={debounceImageUrl} />
           ) : (
             <span>Please Select Image.</span>
           )}

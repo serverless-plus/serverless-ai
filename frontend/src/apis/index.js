@@ -64,8 +64,6 @@ async function getOcrResult(imgUrl) {
   if (res.data.code === 0) {
     return res.data;
   } else {
-    console.log(res);
-
     throw res.data.error;
   }
 }

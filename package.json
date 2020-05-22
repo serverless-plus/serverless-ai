@@ -7,7 +7,7 @@
     "bootstrap": "node scripts/bootstrap.js",
     "deploy": "sls deploy --all",
     "deploy:server": "sls deploy --target=./server",
-    "deploy:frontent": "sls deploy --target=./frontent",
+    "deploy:frontend": "sls deploy --target=./frontend",
     "remove": "sls remove --all",
     "info": "npm run info:backend && npm run info:frontend",
     "info:backend": "sls info --target=./backend",

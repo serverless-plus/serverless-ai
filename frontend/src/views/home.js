@@ -157,6 +157,13 @@ export default function Home() {
           href='https://github.com/yugasun'>
           yugasun
         </a>
+        {' | '}
+        <a
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://github.com/serverless-plus/serverless-ai'>
+          Source Code
+        </a>
       </Footer>
     </Layout>
   );

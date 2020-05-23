@@ -141,10 +141,10 @@ export default function Home() {
       <Header>Serverless OCR</Header>
       <Content>
         <Row justify='center' align='center' gutter={[20, 20]}>
-          <Col span={8}>
+          <Col xl={8} lg={20} md={20} sm={20} xs={20}>
             <OrcImage setTextList={setTextList} />
           </Col>
-          <Col span={8}>
+          <Col xl={8} lg={20} md={20} sm={20} xs={20}>
             <OcrResult data={textList} />
           </Col>
         </Row>

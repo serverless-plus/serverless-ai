@@ -32,6 +32,7 @@ Add the access keys of a
 
 ```dotenv
 # .env
+TENCENT_APP_ID=xxx
 TENCENT_SECRET_ID=xxx
 TENCENT_SECRET_KEY=xxx
 
@@ -41,13 +42,23 @@ REGION=ap-guangzhou
 BUCKET=ocr-images
 ```
 
-> Notice: you should create a bucket for storing user's uploaded images.
-
 Install the NPM dependencies:
 
 ```bash
 $ npm run bootstrap
 ```
+
+### Setup Bucket
+
+You should create a bucket for storing user's uploaded images. By the way, this
+bucket must config `CORS` headers, refer to:
+https://cloud.tencent.com/document/product/436/13318
+
+Below is a example for allow all `CORS` headers:
+
+<center>
+<img src="https://static-yugasun-com-1251556596.file.myqcloud.com/sls/cos-cors-setup.png" alt="CORS config" width="300">
+</center>
 
 ### Development
 
